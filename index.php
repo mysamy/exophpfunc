@@ -29,15 +29,16 @@ echo "12 + 8 = " . $resultat2 . "\n";
 
 //     return $resultat;
 // }
-function additionner($nombre1 + $nombre2) {
+function additionner($nombre1, $nombre2) {
     $resultat = $nombre1 + $nombre2 ;
     return $resultat;
 };
 
 // 📝 VOTRE CODE ICI :
 // À vous de créer la fonction additionner() et de l'utiliser deux fois
-additioner($nombre1, $nombre2);
-additioner($nombre3, $nombre4);
+echo additionner($nombre1, $nombre2); 
+echo "<br>";
+echo additionner($nombre3, $nombre4);
 // ============================================================================
 // ! MINI-PROJET 2 - NIVEAU INTERMÉDIAIRE : L'assistante de magasin
 // ============================================================================
@@ -62,7 +63,19 @@ additioner($nombre3, $nombre4);
 // Conseil : Pensez à bien nommer votre fonction et ses paramètres
 // pour que ce soit clair pour quelqu'un d'autre qui lirait votre code
 
+function appliquerReduction($prix, $pourcentage) {
+    $prixFinal = $prix - ($prix * $pourcentage / 100);
+    return $prixFinal;
+}
 
+// 📝 Tests avec au moins 3 articles différents
+$article1 = appliquerReduction(100, 10); // 90
+$article2 = appliquerReduction(50, 20);  // 40
+$article3 = appliquerReduction(200, 15); // 170
+
+echo "Article 1 : $article1 €<br>";
+echo "Article 2 : $article2 €<br>";
+echo "Article 3 : $article3 €<br>";
 
 // 📝 VOTRE CODE ICI :
 // À vous de créer la fonction appliquerReduction() et de tester avec 
@@ -99,7 +112,38 @@ $age = 25;
 //
 // ⚠️ ATTENTION : Ces fonctions retournent true/false (booléen), pas un texte !
 
+$email = "user@example.com";
+$motdepasse = "SecurePass123";
+$age = 25;
 
+// 💡 MISSION 3 : Trois fonctions de vérification
+
+function verifierEmail($email) {
+    return strpos($email, "@") !== false;
+}
+
+function verifierMotDePasse($motdepasse) {
+    return strlen($motdepasse) >= 8;
+}
+
+function verifierAge($age) {
+    return $age >= 18;
+}
+
+// 📝 Tests avec plusieurs cas
+
+echo "<br><br>=== Tests Validation ===<br>";
+
+echo "Email valide ? " . (verifierEmail($email) ? "✅ Oui" : "❌ Non") . "<br>";
+echo "Mot de passe valide ? " . (verifierMotDePasse($motdepasse) ? "✅ Oui" : "❌ Non") . "<br>";
+echo "Âge valide ? " . (verifierAge($age) ? "✅ Oui" : "❌ Non") . "<br>";
+
+// Autres cas de test
+echo "<br>Autres cas :<br>";
+echo "Email 'userexample.com' → " . (verifierEmail("userexample.com") ? "✅" : "❌") . "<br>";
+echo "Mot de passe 'abc' → " . (verifierMotDePasse("abc") ? "✅" : "❌") . "<br>";
+echo "Âge 16 → " . (verifierAge(16) ? "✅" : "❌") . "<br>";
+?>
 // 📝 VOTRE CODE ICI :
 // À vous de créer les trois fonctions et de les tester 
 // avec plusieurs données (dont des cas invalides)
